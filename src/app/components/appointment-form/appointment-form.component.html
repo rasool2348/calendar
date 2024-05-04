@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="appointmentForm" (ngSubmit)="addAppointment()">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Time</mat-label>
+    <input matInput type="time" formControlName="time">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!appointmentForm.valid">Add to Calendar</button>
+</form>

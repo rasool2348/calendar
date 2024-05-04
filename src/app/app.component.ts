@@ -1,13 +1,7 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-
-export type Time = {
-  hour:string;
-}
-export type Appointment = {
-  hour:string;
-  events:string[];
-}
+import { CONTENT, TIME } from './models/appointment';
+import { MatDialog } from '@angular/material/dialog';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 
 @Component({
   selector: 'app-root',
@@ -17,77 +11,54 @@ export type Appointment = {
 
 
 export class AppComponent {
-  title = 'calendar';
+  
+  constructor(private _dialog:MatDialog){}
 
-  timeRange:Time[] = [
-    {hour:''},
-    {hour:'1 AM'},
-    {hour:'2 AM'},
-    {hour:'3 AM'},
-    {hour:'4 AM'},
-    {hour:'5 AM'},
-    {hour:'6 AM'},
-    {hour:'7 AM'},
-    {hour:'8 AM'},
-    {hour:'9 AM'},
-    {hour:'10 AM'},
-    {hour:'11 AM'},
-    {hour:'12 PM'},
-    {hour:'1 PM'},
-    {hour:'2 PM'},
-    {hour:'3 PM'},
-    {hour:'4 PM'},
-    {hour:'5 PM'},
-    {hour:'6 PM'},
-    {hour:'7 PM'},
-    {hour:'8 PM'},
-    {hour:'9 PM'},
-    {hour:'10 PM'},
-    {hour:'11 PM'},
-
-    
+  timeRange:TIME[] = [
+    {hour:'',type:''},
+    {hour:1,type:'am'},
+    {hour:2,type:'am'},
+    {hour:3,type:'am'},
+    {hour:4,type:'am'},
+    {hour:5,type:'am'},
+    {hour:6,type:'am'},
+    {hour:7,type:'am'},
+    {hour:8,type:'am'},
+    {hour:9,type:'am'},
+    {hour:10,type:'am'},
+    {hour:11,type:'am'},
+    {hour:12,type:'pm'},
+    {hour:1,type:'pm'},
+    {hour:2,type:'pm'},
+    {hour:3,type:'pm'},
+    {hour:4,type:'pm'},
+    {hour:5,type:'pm'},
+    {hour:6,type:'pm'},
+    {hour:7,type:'pm'},
+    {hour:8,type:'pm'},
+    {hour:9,type:'pm'},
+    {hour:10,type:'pm'},
+    {hour:11,type:'pm'},
     
   ];
 
-  appointments:Appointment[] = [
-    {hour:'',events:[]},
-    {hour:'1 AM',events:[]},
-    {hour:'2 AM',events:[]},
-    {hour:'3 AM',events:[]},
-    {hour:'4 AM',events:[]},
-    {hour:'5 AM',events:[]},
-    {hour:'6 AM',events:[]},
-    {hour:'7 AM',events:[]},
-    {hour:'8 AM',events:['red']},
-    {hour:'9 AM',events:[]},
-    {hour:'10 AM',events:['blue']},
-    {hour:'11 AM',events:[]},
-    {hour:'12 PM',events:[]},
-    {hour:'1 PM',events:[]},
-    {hour:'2 PM',events:[]},
-    {hour:'3 PM',events:[]},
-    {hour:'4 PM',events:[]},
-    {hour:'5 PM',events:[]},
-    {hour:'6 PM',events:[]},
-    {hour:'7 PM',events:[]},
-    {hour:'8 PM',events:[]},
-    {hour:'9 PM',events:[]},
-    {hour:'10 PM',events:[]},
-    {hour:'11 PM',events:[]},
-  ];
+  selected:Date = new Date();
+  content:CONTENT | null = null;
 
-  addAppointment(index:number){
-    this.selected = index;
+
+  change(event:any){
+    this.content = null;
   }
-  drop(event: CdkDragDrop<Appointment[]>) {
-    moveItemInArray(this.appointments, event.previousIndex, event.currentIndex);
+
+  createAppointment(){
+    const dialogRef = this._dialog.open(AppointmentFormComponent)
   }
+
+  
+  
   calcMarginTop(index:number){
     return (index+1)*5 + 'vh'
   }
 
-  selected:number | null = null;
-
-  
 
 }

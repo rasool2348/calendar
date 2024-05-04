@@ -5,37 +5,43 @@
   height: 100vh;
   column-gap: 0.5rem;
   position: relative;
-
   .splitter {
     position: absolute;
     height: 100%;
     width: 1px;
     background-color: lightgray;
-    left: 35vw;
+    left: 25vw;
   }
 }
 .calendar {
   display: flex;
-  flex: 30%;
-  background-color: red;
+  flex-direction: column;
+  flex: 20%;
+  mat-calendar {
+    flex: 30%;
+    width: 100%;
+  }
 }
 .time-range {
   display: flex;
-  flex: 70%;
+  flex: 80%;
   flex-direction: column;
   overflow-y: scroll;
   position: relative;
-
   .datetime {
     display: flex;
     flex-direction: row;
     font-size: 0.7vw;
+    font-weight: 700;
     justify-content: center;
     align-items: center;
     position: fixed;
-    background-color: whitesmoke;
+    background-color: white;
     height: 5vh;
     width: 100%;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
     .timezone {
       text-align: center;
       flex: 5%;
@@ -46,9 +52,7 @@
       font-family: cursive;
     }
     pointer-events: none;
-    
   }
-
 
   .hour {
     pointer-events: none;
@@ -68,26 +72,7 @@
     .line {
       flex: 95%;
       height: 5vh;
-      border-bottom: 1px solid gray;
-    }
-  }
-
-  .events{
-    font-size: 0.7vw;
-    margin-top: 5vh;
-    padding-left: 4vw;
-    display: flex;
-    flex-direction: column;
-    .temp{
-        height: 5vh;
-        display: flex;
-        flex-direction: row;
-        width: 70%;
-        .appointment{
-            background-color: purple;
-            height: 5vh;
-            width: 100%;
-        }
+      border-bottom: 1px solid black;
     }
   }
 }

@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="calendar"></div>
+  <div class="calendar">
+      <button mat-raised-button color="primary" (click)="createAppointment()">Create</button>
+      <mat-calendar [(selected)]="selected" (selectedChange)="change($event)"></mat-calendar>
+      <p>{{selected}}</p>
+  </div>
   <div class="time-range">
     <div class="datetime">
-      <div class="timezone">TimeZone</div>
-      <div class="day">wed 3th</div>
+      <div class="timezone">{{selected.toString().split(' ')[5]}}</div>
+      <div class="day">{{selected.toString().split(' ').slice(0,3)}}</div>
     </div>
     <div
       class="hour"
       *ngFor="let time of timeRange; let i = index" [style.marginTop]="calcMarginTop(i)">
-      <div class="title">{{ time.hour }}</div>
+      <div class="title">{{ time.hour }} {{time.type | uppercase}}</div>
       <div class="line"></div>
     </div>
-    <div class="events" cdkDropList (cdkDropListDropped)="drop($event)" >
-        <div class="temp" *ngFor="let appointment of appointments" cdkDrag [cdkDragDisabled]="appointment.events[0] == 'red' ? true : false">
-            <div class="appointment" *ngIf="appointment.events.length > 0" [style.backgroundColor]="appointment.events[0]"></div>
-        </div>
-    </div>
+    <time-range [content]="content"></time-range>
   </div>
   <div class="splitter"></div>
 </div>

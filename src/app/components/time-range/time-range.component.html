@@ -1,0 +1,33 @@
+<div
+  class="appointment-container"
+  cdkDropList
+  (cdkDropListDropped)="dropGroup($event)"
+  [cdkDropListData]="appointments"
+>
+  <div
+    class="appointment"
+    *ngFor="let appointment of appointments"
+    cdkDrag
+    cdkDropListGroup
+    [cdkDragData]="appointment"
+  >
+    <div
+      class="content-container"
+      [cdkDropListData]="appointment.contents"
+      (cdkDropListDropped)="dropItem($event)"
+      cdkDropList
+      [id]="appointment.time.hour + appointment.time.type"
+      [cdkDropListConnectedTo]="getConnectedLists()"
+    >
+      <div
+        class="content"
+        *ngFor="let content of appointment.contents"
+        cdkDrag
+        [cdkDragData]="content"
+      >
+        {{ content.title }}: {{content.description}} <br>
+        {{content.time.hour}} {{content.time.type}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppComponent } from './app.component';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core';
+import { TimeRangeComponent } from './components/time-range/time-range.component';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppointmentFormComponent
   ],
   imports: [
     BrowserModule,
-    DragDropModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TimeRangeComponent,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

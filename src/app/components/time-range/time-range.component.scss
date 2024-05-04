@@ -1,0 +1,26 @@
+.appointment-container {
+  font-size: 0.7vw;
+  margin-top: 5vh;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  .appointment {
+    display: flex;
+    flex-direction: column;
+    .content-container {
+      display: flex;
+      flex-direction: row;
+      height: 5vh;
+      column-gap: 0.5vw;
+      .content {
+        flex: 1;
+        background-color: purple;
+        font-family: cursive;
+        color: white;
+        font-size: 0.7vw;
+        text-align: center;
+        border-radius: 5px;
+      }
+    }
+  }
+}
