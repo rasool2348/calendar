@@ -12,6 +12,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContentService } from './services/content.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [ContentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

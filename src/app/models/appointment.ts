@@ -4,8 +4,8 @@ export type CONTENT = {
     time:TIME
 }
 export type TIME = {
-    hour:number|'';
-    type:'am' | 'pm' | ''
+    hour:number;
+    type:'am' | 'pm'
 }
 export type APPOINTMENT = {
     contents:CONTENT[];

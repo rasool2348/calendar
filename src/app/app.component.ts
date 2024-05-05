@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CONTENT, TIME } from './models/appointment';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+import { ContentService } from './services/content.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,12 @@ import { AppointmentFormComponent } from './components/appointment-form/appointm
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   
-  constructor(private _dialog:MatDialog){}
+  constructor(private _dialog:MatDialog,private _contentService:ContentService){}
 
   timeRange:TIME[] = [
-    {hour:'',type:''},
+    {hour:0,type:'am'},
     {hour:1,type:'am'},
     {hour:2,type:'am'},
     {hour:3,type:'am'},
@@ -52,6 +53,12 @@ export class AppComponent {
 
   createAppointment(){
     const dialogRef = this._dialog.open(AppointmentFormComponent)
+  }
+
+  ngOnInit(): void {
+    this._contentService.$content.subscribe(
+      value => this.content = value
+    )
   }
 
   

@@ -19,7 +19,7 @@ export class TimeRangeComponent {
   
 
   appointments:APPOINTMENT[] = [
-    {time:{hour:'',type:''},contents:[]},
+    {time:{hour:0,type:'am'},contents:[]},
     {time:{hour:1,type:'am'},contents:[]},
     {time:{hour:2,type:'am'},contents:[]},
     {time:{hour:3,type:'am'},contents:[]},

@@ -12,7 +12,7 @@
     <div
       class="hour"
       *ngFor="let time of timeRange; let i = index" [style.marginTop]="calcMarginTop(i)">
-      <div class="title">{{ time.hour }} {{time.type | uppercase}}</div>
+      <div class="title">{{ time.hour == 0 ? '' : time.hour}} {{time.hour == 0 ? (time.type | uppercase) : ''}}</div>
       <div class="line"></div>
     </div>
     <time-range [content]="content"></time-range>
