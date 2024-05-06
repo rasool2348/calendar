@@ -1,15 +1,22 @@
 <form class="form" [formGroup]="appointmentForm">
   <mat-form-field>
     <mat-label>Title</mat-label>
-    <input matInput formControlName="title">
+    <input matInput formControlName="title" />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <input matInput formControlName="description">
+    <input matInput formControlName="description" />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Time</mat-label>
-    <input matInput type="time" formControlName="time">
+    <input matInput type="time" formControlName="time" />
   </mat-form-field>
-  <button mat-raised-button color="primary" [disabled]="!appointmentForm.valid" #submit>Add to Calendar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!appointmentForm.valid"
+    id="submit"
+  >
+    Add to Calendar
+  </button>
 </form>

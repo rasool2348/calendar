@@ -24,9 +24,10 @@
         *ngFor="let content of appointment.contents"
         cdkDrag
         [cdkDragData]="content"
+        (contextmenu)="onRightClick($event,appointment,content)"
       >
-        {{ content.title }}: {{content.description}} <br>
-        {{content.time.hour}} {{content.time.type}}
+        Title: {{ content.title }}<br />
+        Description: {{ content.description }}
       </div>
     </div>
   </div>

@@ -1,13 +1,12 @@
-import { Injectable } from "@angular/core";
-import { CONTENT } from "../models/appointment";
-import { Observable, Subject, from, of } from "rxjs";
+import { Injectable } from '@angular/core';
+import { CONTENT } from '../models/appointment';
+import { Observable, Subject, from, of } from 'rxjs';
 
 @Injectable()
-export class ContentService{
+export class ContentService {
+  addContent(content: CONTENT) {
+    this.$content.next(content);
+  }
 
-    addContent(content:CONTENT){
-        this.$content.next(content);
-    }
-
-    $content = new Subject<CONTENT>();
+  $content = new Subject<CONTENT>();
 }
